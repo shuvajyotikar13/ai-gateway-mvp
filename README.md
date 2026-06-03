@@ -58,13 +58,25 @@ SECONDARY_PROVIDER=anthropic
 docker-compose up -d
 ```
 
-2. Run the Gateway Engine:
+2. Install project dependencies locally:
 
-```bash
-go run cmd/gateway/main.go
+``` bash
+pip install -r requirements.txt
 ```
 
-3. Verify the Streaming Ingress:
+3. Execute validation integration testing targets:
+
+```bash
+pytest -v
+```
+
+4. Launch the Gateway control loop interface:
+
+```bash
+uvicorn app.main:app --port 8080 --reload
+```
+
+5. Verify the Streaming Ingress:
 
 ```bash
 curl -X POST http://localhost:8080/v1/chat/completions \
