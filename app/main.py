@@ -3,8 +3,8 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request, HTTPException, status
 from fastapi.responses import JSONResponse
 from app.config import settings
-from app.gateway.router import ResilientStreamRouter
-from app.limiter.token_bucket import DragonflyTokenBucket
+from app.gateway import ResilientStreamRouter
+from app.limiter import DragonflyTokenBucket
 
 # Structural logging setup
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
