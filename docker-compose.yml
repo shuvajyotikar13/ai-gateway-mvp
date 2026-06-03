@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  dragonfly:
+    image: 'docker.dragonflydb.io/dragonflydb/dragonfly:v1.22.0'
+    ports:
+      - "6379:6379"
+    ulimits:
+      memlock: -1
+    restart: always
